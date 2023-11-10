@@ -1,8 +1,46 @@
 
 .dragThing{
-    background-color: lightblue;
-    padding: 10px;
+    background-color: white;
     text-align: left;
     cursor: grab;
-    width: 250px;
+    width: 400px;
+    height: 50px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    border: solid 4px white;
+}
+
+.dragThing.selected{
+    border-color: #73AEE4;
+}
+
+#dragParent > *{
+    margin-top: 5px;
+}
+
+#draftGame{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+h2{
+    text-align: center;
+}
+
+#draftOrderBox{
+    background-color: lightgray;
+    border: solid 5px;
+    border-color: lightgrey;
+    height: 560px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+
+#playersBox{
+    display: flex;
+}
+
+.availablePlayers{
+    padding: 10px;
 }
