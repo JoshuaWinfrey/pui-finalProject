@@ -1,0 +1,8 @@
+
+.dragThing{
+    background-color: lightblue;
+    padding: 10px;
+    text-align: left;
+    cursor: grab;
+    width: 250px;
+}
