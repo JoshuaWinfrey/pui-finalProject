@@ -1,4 +1,30 @@
 
+*{
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+header{
+    height: 125px;
+    background-color: #FAF3DD;
+    display: flex;
+    align-items: center;
+    margin: -10px;
+    border-bottom: solid 2px lightgrey;
+}
+
+h1{
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 190px;
+}
+
+#howToPlay{
+    margin-left: 190px;
+    margin-top: 50px;
+}
+
 .dragThing{
     background-color: white;
     text-align: left;
@@ -8,6 +34,7 @@
     box-sizing: content-box;
     border-radius: 5px;
     border: solid 4px white;
+    font-size: 14px;
 }
 
 .dragThing.selected{
@@ -21,11 +48,13 @@
 #draftGame{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 h2{
     text-align: center;
+    color: #73AEE4;
+    font-weight: 700;
 }
 
 #draftOrderBox{
@@ -39,8 +68,13 @@ h2{
 
 #playersBox{
     display: flex;
+    background-color: lightgray;
+    height: 560px;
+    width: 700px;
+    border-radius: 5px;
 }
 
 .availablePlayers{
-    padding: 10px;
+    padding: 20px;
+    font-size: 14px;
 }
