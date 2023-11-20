@@ -3,6 +3,9 @@
 <head>
 <link rel="stylesheet" href="gamePage.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <title>The NFL Draft Game</title>
 </head>
 
@@ -13,11 +16,12 @@
         </h1>
     </header>
 
-    <div id="howToPlay">
-        How to Play
-    </div>
-
     <section id="draftGame">
+        
+        <div id="howToPlay">
+            How to Play
+        </div>
+
         <section id="draftOrder">
         <h2>
             Draft Order
@@ -45,15 +49,29 @@
         </h2>
         <div id="playersBox">
             <div class="availablePlayers">
-                Caleb Williams
-            </div>
+                <div id="player1">
+                    <div class="playerPhoto">
+                        <div class="playerPosition">
+                            QB
+                        </div>
 
-            <div class="availablePlayers">
-                Drake Maye
-            </div>
-
-            <div class="availablePlayers">
-                Marvin Harrison Jr. 
+                        <div class="addPlayerButton">
+                            <img src="Assets/Icon Plus.png" alt="add player button" width="30px" height="30px">
+                        </div>
+                        
+                        <div class="rosterPhoto">
+                            <img src="Assets/Caleb Williams.png" alt="Caleb Williams" width="86px" height="98px">
+                        </div>
+                    </div>
+                    
+                    <div class="playerName">
+                    1. Caleb Williams
+                    </div>
+                    
+                    <div class="playerSchool">
+                    USC
+                    </div>
+                </div>
             </div>
         </div>
         </section>
