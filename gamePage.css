@@ -96,7 +96,7 @@ h2{
 .playerName{
     font-size: 12px;
     font-weight: bold;
-    padding-top: 10px;
+    margin-top: 5px;
 }
 
 .playerPosition{
@@ -110,8 +110,8 @@ h2{
     justify-content: center;
     align-items: center;
     position: absolute;
-    margin-top: 65px;
-    margin-left: 60px;
+    margin-top: 80px;
+    margin-left: 57px;
 
 }
 
@@ -123,8 +123,13 @@ h2{
 
 .playerSchool{
     font-size: 12px;
+    margin-top: -10px;
 }
 
 .playerRank{
     font-size: 12px;
+}
+
+.addPlayerButton:hover{
+    cursor: pointer;
 }
