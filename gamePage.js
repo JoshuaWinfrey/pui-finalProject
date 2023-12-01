@@ -45,37 +45,53 @@ function switchTeam(clickedTeam) {
 
 function selectPlayer() {
     if (currentTeam) {
-        let selectedPlayer = document.querySelector('.selected .selectedPlayer');
-
-        // Create a new player element
-        let newPlayerElement = document.createElement('div');
-        newPlayerElement.className = 'selectedPlayer';
-
-        // Copy player information to the new player element
-        let playerInfo = document.createElement('div');
-        let playerImage = document.createElement('div');
-        playerInfo.className = 'playerInfo';
-        playerImage.className = 'playerImage';
-        playerPosition.className = ('playerInfo', 'selectedPlayerPosition');
-        playerSchool.className = 'selectedPlayerSchool';
-        playerInfo.appendChild(playerName);
-        playerInfo.appendChild(playerPosition);
-        playerInfo.appendChild(playerSchool);
-        playerImage.appendChild(rosterPhoto);
-        addPlayerButton.remove();
-
-        newPlayerElement.appendChild(playerInfo);
-        newPlayerElement.appendChild(playerImage);
-
-        // Append the new player element to the selected team
-        let selectedTeam = document.querySelector('.selected');
-        selectedTeam.appendChild(newPlayerElement);
-        console.log(currentTeam + " has selected " + playerName.innerHTML + "!");
         
+        let selectedPlayerElement = this.closest('.players');
+        console.log(selectedPlayerElement)
+        if (selectedPlayerElement) {
+            let playerName = selectedPlayerElement.querySelector('.playerName').textContent;
+
+            // Create a new player element
+            let newPlayerElement = document.createElement('div');
+            newPlayerElement.className = 'selectedPlayer';
+
+            // Copy player information to the new player element
+            let playerInfo = document.createElement('div');
+            let playerImage = document.createElement('div');
+            let playerPosition = document.createElement('div');
+            let playerSchool = document.createElement('div');
+            playerInfo.className = 'playerInfo';
+            playerImage.className = 'playerImage';
+            playerPosition.className = 'selectedPlayerPosition';
+            playerSchool.className = 'selectedPlayerSchool';
+            playerInfo.appendChild(document.createTextNode(playerName)); // Set player name
+            playerInfo.appendChild(playerPosition);
+            playerInfo.appendChild(playerSchool);
+            playerImage.appendChild(selectedPlayerElement.querySelector('.rosterPhoto').cloneNode(true));
+            selectedPlayerElement.remove();
+
+            newPlayerElement.appendChild(playerInfo);
+            newPlayerElement.appendChild(playerImage);
+
+            // Append the new player element to the selected team
+            let selectedTeam = document.querySelector('.selected');
+            selectedTeam.appendChild(newPlayerElement);
+
+            // Remove the selected player from the availablePlayers div
+            let availablePlayers = document.querySelector('.availablePlayers');
+            let selectedPlayer = document.querySelector('.selected');
+            availablePlayers.removeChild(selectedPlayer);
+
+            console.log(currentTeam + " has selected " + playerName + "!");
+        } else {
+            console.error("Error: Unable to find selected player element.");
+        }
     } else {
         console.log("Please select a team first.");
     }
 }
+
+
 
 function addTeam(teamName, pick) {
     let dragParent = document.querySelector('#dragParent');
@@ -160,7 +176,7 @@ function addPlayer(){
     positionElement.textContent = players[i].position;
 
     playerPhotoElement.appendChild(rosterPhotoElement);
-    playerPhotoElement.appendChild(addButton);
+    newPlayer.appendChild(addButton);
     newPlayer.appendChild(playerPhotoElement);
     newPlayer.appendChild(playerNameElement);
     newPlayer.appendChild(positionElement);
@@ -174,8 +190,11 @@ function addPlayer(){
 addPlayer();
 
 
-let addPlayerButton = document.querySelector(".addPlayerButton");
-addPlayerButton.addEventListener("click", selectPlayer);
+let addPlayerButtons = document.querySelectorAll(".addPlayerButton");
+addPlayerButtons.forEach( (addPlayerButton) => {
+    addPlayerButton.addEventListener("click", selectPlayer);
+})
+
 
 
 
