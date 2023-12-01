@@ -1,3 +1,18 @@
+let players = [
+    {
+        name: "Caleb Williams",
+        school: "USC",
+        position: "QB",
+        id: "player1"
+    },
+    {
+        name: "Drake Maye",
+        school: "UNC",
+        position: "QB",
+        id: "player2"
+    }];
+
+
 let currentTeam = null;
 
 function initDragula() {
@@ -28,16 +43,6 @@ function switchTeam(clickedTeam) {
     console.log("Current Team: " + currentTeam);
 }
 
-let addPlayerButton = document.querySelector(".addPlayerButton");
-let removePlayerButton = document.querySelector(".removePlayerButton");
-let player1 = document.querySelector("#player1");
-let playerName = document.querySelector(".playerName");
-let playerSchool = document.querySelector(".playerSchool");
-let playerPosition = document.querySelector(".playerPosition");
-let rosterPhoto = document.querySelector(".rosterPhoto");
-
-addPlayerButton.addEventListener("click", selectPlayer);
-
 function selectPlayer() {
     if (currentTeam) {
         let selectedPlayer = document.querySelector('.selected .selectedPlayer');
@@ -54,8 +59,8 @@ function selectPlayer() {
         playerPosition.className = ('playerInfo', 'selectedPlayerPosition');
         playerSchool.className = 'selectedPlayerSchool';
         playerInfo.appendChild(playerName);
-        playerInfo.appendChild(playerSchool);
         playerInfo.appendChild(playerPosition);
+        playerInfo.appendChild(playerSchool);
         playerImage.appendChild(rosterPhoto);
         addPlayerButton.remove();
 
@@ -125,43 +130,53 @@ addTeam("San Francisco 49ers", 30);
 addTeam("Baltimore Ravens", 31);
 addTeam("Philadelphia Eagles", 32);
 
-function addPlayer(playerName, school, position){
+function addPlayer(){
     let availablePlayers = document.querySelector('.availablePlayers');
     availablePlayers.className = 'availablePlayers';
 
-    let newPlayer = document.createElement('div');
+    for (let i=0; i<players.length; i++){
+        let newPlayer = document.createElement('div');
     newPlayer.className = 'players';
+    newPlayer.id = players[i].id;
 
     let playerNameElement = document.createElement('div');
     let schoolElement = document.createElement('div');
     let positionElement = document.createElement('div');
     let playerPhotoElement = document.createElement('div'); 
     let rosterPhotoElement = document.createElement('img');
-    rosterPhotoElement.src = "Assets/" + playerName + ".png";
+    rosterPhotoElement.src = "Assets/" + players[i].name + ".png";
+    let addButton = document.createElement('img');
+    addButton.src = "Assets/Icon Plus.png";
     
 
     playerNameElement.className = 'playerName';
     schoolElement.className = 'playerSchool';
     positionElement.className = 'playerPosition';
     rosterPhotoElement.className = 'rosterPhoto';
+    addButton.className = 'addPlayerButton';
 
-    playerNameElement.textContent = playerName;
-    schoolElement.textContent = school;
-    positionElement.textContent = position;
+    playerNameElement.textContent = players[i].name;
+    schoolElement.textContent = players[i].school;
+    positionElement.textContent = players[i].position;
 
     playerPhotoElement.appendChild(rosterPhotoElement);
+    playerPhotoElement.appendChild(addButton);
     newPlayer.appendChild(playerPhotoElement);
     newPlayer.appendChild(playerNameElement);
-    newPlayer.appendChild(schoolElement);
     newPlayer.appendChild(positionElement);
-    
+    newPlayer.appendChild(schoolElement);
 
-    availablePlayers.appendChild(newPlayer);
+    availablePlayers.appendChild(newPlayer);  
 
+    }
 }
 
-addPlayer("Drake Maye", "UNC", "QB");
-addPlayer("Marvin Harrison Jr.", "Ohio State", "WR");
+addPlayer();
+
+
+let addPlayerButton = document.querySelector(".addPlayerButton");
+addPlayerButton.addEventListener("click", selectPlayer);
+
 
 
 

@@ -107,16 +107,7 @@ h2{
 }
 
 .playerPosition{
-    font-size: 15px;
-    width: 29px;
-    height: 24px;
-    color: white;
-    background-color: black;
-    border-radius: 3px;
-    position: absolute;
-    margin-left: 57px;
-    margin-top: -63px;
-
+    font-size: 12px;
 }
 
 .addPlayerButton{
