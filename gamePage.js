@@ -12,6 +12,170 @@ let players = [
         id: "player2"
     }];
 
+let teams = [
+    {
+        name: "Chicago Bears",
+        pick: 1,
+        id: "bears1"
+    },
+    {
+        name: "Arizona Cardinals",
+        pick: 2,
+        id: "cardinals1"
+    },
+    {
+        name: "New England Patriots",
+        pick: 3,
+        id: "patriots1"
+    },
+    {
+        name: "Chicago Bears",
+        pick: 4,
+        id: "bears2"
+    },
+    {
+        name: "Washington Commanders",
+        pick: 5,
+        id: "commanders1"
+    },
+    {
+        name: "New York Giants",
+        pick: 6,
+        id: "giants1"
+    },
+    {
+        name: "Tampa Bay Buccaneers",
+        pick: 7,
+        id: "buccaneers1"
+    },
+    {
+        name: "New York Jets",
+        pick: 8,
+        id: "jets1"
+    },
+    {
+        name: "Los Angeles Chargers",
+        pick: 9,
+        id: "chargers1"
+    },
+    {
+        name: "Tennessee Titans",
+        pick: 10,
+        id: "titans1"
+    },
+    {
+        name: "Las Vegas Raiders",
+        pick: 11,
+        id: "raiders1"
+    },
+    {
+        name: "New Orleans Saints",
+        pick: 12,
+        id: "saints1"
+    },
+    {
+        name: "Green Bay Packers",
+        pick: 13,
+        id: "packers1"
+    },
+    {
+        name: "Los Angeles Rams",
+        pick: 14,
+        id: "rams1"
+    },
+    {
+        name: "Cincinnati Bengals",
+        pick: 15,
+        id: "bengals1"
+    },
+    {
+        name: "Buffalo Bills",
+        pick: 16,
+        id: "bills1"
+    },
+    {
+        name: "Arizona Cardinals",
+        pick: 17,
+        id: "cardinals2"
+    },
+    {
+        name: "Denver Broncos",
+        pick: 18,
+        id: "broncos1"
+    },
+    {
+        name: "Atlanta Falcons",
+        pick: 19,
+        id: "falcons1"
+    },
+    {
+        name: "Minnesota Vikings",
+        pick: 20,
+        id: "vikings1"
+    },
+    {
+        name: "Indianapolis Colts",
+        pick: 21,
+        id: "colts1"
+    },
+    {
+        name: "Seattle Seahawks",
+        pick: 22,
+        id: "seahawks1"
+    },
+    {
+        name: "Pittsburgh Steelers",
+        pick: 23,
+        id: "steelers1"
+    },
+    {
+        name: "Houston Texans",
+        pick: 24,
+        id: "texans1"
+    },
+    {
+        name: "Miami Dolphins",
+        pick: 25,
+        id: "dolphins1"
+    },
+    {
+        name: "Dallas Cowboys",
+        pick: 26,
+        id: "cowboys1"
+    },
+    {
+        name: "Detroit Lions",
+        pick: 27,
+        id: "lions1"
+    },
+    {
+        name: "Jacksonville Jaguars",
+        pick: 28,
+        id: "jaguars1"
+    },
+    {
+        name: "Kansas City Chiefs",
+        pick: 29,
+        id: "chiefs1"
+    },
+    {
+        name: "San Francisco 49ers",
+        pick: 30,
+        id: "49ers1"
+    },
+    {
+        name: "Baltimore Ravens",
+        pick: 31,
+        id: "ravens1"
+    },
+    {
+        name: "Philadelphia Eagles",
+        pick: 32,
+        id: "eagles1"
+    },
+
+];
+
 
 let currentTeam = null;
 
@@ -39,7 +203,7 @@ function switchTeam(clickedTeam) {
     clickedTeam.classList.add('selected');
 
     // Set the currentTeam to the clicked team
-    currentTeam = clickedTeam.textContent.trim(); // The team name is the text content
+    currentTeam = clickedTeam.querySelector('.teamName').textContent.trim(); // The team name is the text content
     console.log("Current Team: " + currentTeam);
 }
 
@@ -47,9 +211,9 @@ function selectPlayer() {
     if (currentTeam) {
         
         let selectedPlayerElement = this.closest('.players');
-        console.log(selectedPlayerElement)
         if (selectedPlayerElement) {
             let playerName = selectedPlayerElement.querySelector('.playerName').textContent;
+            console.log(playerName);
 
             // Create a new player element
             let newPlayerElement = document.createElement('div');
@@ -80,7 +244,6 @@ function selectPlayer() {
             // Remove the selected player from the availablePlayers div
             let availablePlayers = document.querySelector('.availablePlayers');
             let selectedPlayer = document.querySelector('.selected');
-            availablePlayers.removeChild(selectedPlayer);
 
             console.log(currentTeam + " has selected " + playerName + "!");
         } else {
@@ -93,58 +256,28 @@ function selectPlayer() {
 
 
 
-function addTeam(teamName, pick) {
+function addTeam() {
     let dragParent = document.querySelector('#dragParent');
 
+    for (let i =0; i<teams.length; i++){
     let newTeam = document.createElement('div');
     newTeam.className = 'dragThing';
+    newTeam.id = teams[i].id;
 
     let teamNameElement = document.createElement('div');
     let pickElement = document.createElement('div');
     teamNameElement.className = 'teamName';
     pickElement.className = 'pick';
 
-    teamNameElement.textContent = teamName;
-    pickElement.textContent = pick;
+    teamNameElement.textContent = teams[i].name;
+    pickElement.textContent = teams[i].pick;
 
     newTeam.appendChild(teamNameElement);
     newTeam.appendChild(pickElement);
 
     dragParent.appendChild(newTeam);
 }
-
-addTeam("Chicago Bears", 1);
-addTeam("Arizona Cardinals", 2);
-addTeam("New England Patriots", 3);
-addTeam("Chicago Bears", 4);
-addTeam("Washington Commanders", 5);
-addTeam("New York Giants", 6);
-addTeam("Tampa Bay Buccaneers", 7);
-addTeam("New York Jets", 8);
-addTeam("Los Angeles Chargers", 9);
-addTeam("Tennessee Titans", 10);
-addTeam("Las Vegas Raiders", 11);
-addTeam("New Orleans Saints", 12);
-addTeam("Green Bay Packers", 13);
-addTeam("Los Angeles Rams", 14);
-addTeam("Cincinnati Bengals", 15);
-addTeam("Buffalo Bills", 16);
-addTeam("Arizona Cardinals", 17);
-addTeam("Denver Broncos", 18);
-addTeam("Atlanta Falcons", 19);
-addTeam("Minnesota Vikings", 20);
-addTeam("Indianapolis Colts", 21);
-addTeam("Seattle Seahawks", 22);
-addTeam("Pittsburgh Steelers", 23);
-addTeam("Houstan Texans", 24);
-addTeam("Miami Dolphins", 25);
-addTeam("Dallas Cowboys", 26);
-addTeam("Detroit Lions", 27);
-addTeam("Jacksonville Jaguars", 28);
-addTeam("Kansas City Chiefs", 29);
-addTeam("San Francisco 49ers", 30);
-addTeam("Baltimore Ravens", 31);
-addTeam("Philadelphia Eagles", 32);
+}
 
 function addPlayer(){
     let availablePlayers = document.querySelector('.availablePlayers');
@@ -188,6 +321,7 @@ function addPlayer(){
 }
 
 addPlayer();
+addTeam();
 
 
 let addPlayerButtons = document.querySelectorAll(".addPlayerButton");
