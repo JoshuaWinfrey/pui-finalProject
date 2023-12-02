@@ -395,6 +395,7 @@ function selectPlayer() {
         let selectedPlayerElement = this.closest('.players');
         if (selectedPlayerElement) {
             let playerName = selectedPlayerElement.querySelector('.playerName').textContent;
+            let playerPosition = selectedPlayerElement.querySelector('.playerPosition').textContent;
             console.log(playerName);
 
             // Create a new player element
@@ -404,14 +405,15 @@ function selectPlayer() {
             // Copy player information to the new player element
             let playerInfo = document.createElement('div');
             let playerImage = document.createElement('div');
-            let playerPosition = document.createElement('div');
+            //let playerPosition = document.createElement('div');
             let playerSchool = document.createElement('div');
             playerInfo.className = 'playerInfo';
             playerImage.className = 'playerImage';
+            playerName.className = 'selectedPlayerName';
             playerPosition.className = 'selectedPlayerPosition';
             playerSchool.className = 'selectedPlayerSchool';
             playerInfo.appendChild(document.createTextNode(playerName)); // Set player name
-            playerInfo.appendChild(playerPosition);
+            playerInfo.appendChild(document.createTextNode(playerPosition));
             playerInfo.appendChild(playerSchool);
             playerImage.appendChild(selectedPlayerElement.querySelector('.rosterPhoto').cloneNode(true));
             selectedPlayerElement.remove();
@@ -427,7 +429,7 @@ function selectPlayer() {
             let availablePlayers = document.querySelector('.availablePlayers');
             let selectedPlayer = document.querySelector('.selected');
 
-            console.log(currentTeam + " has selected " + playerName + "!");
+            console.log("The " + currentTeam + " have selected " + playerName + "!");
         } else {
             console.error("Error: Unable to find selected player element.");
         }
@@ -494,8 +496,9 @@ function addPlayer(){
     newPlayer.appendChild(addButton);
     newPlayer.appendChild(playerPhotoElement);
     newPlayer.appendChild(playerNameElement);
-    newPlayer.appendChild(positionElement);
     newPlayer.appendChild(schoolElement);
+    newPlayer.appendChild(positionElement);
+   
 
     availablePlayers.appendChild(newPlayer);  
 

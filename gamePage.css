@@ -76,6 +76,7 @@ h2{
     border-color: lightgrey;
     border-radius: 5px;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 
 .availablePlayers{
@@ -87,6 +88,9 @@ h2{
 
 .players{
     padding: 20px;
+    position: relative;
+    width: 135px;
+    height: 159px;
 }
 
 .rosterPhoto{
@@ -102,18 +106,23 @@ h2{
 }
 
 .playerName{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .playerPosition{
     font-size: 12px;
+    font-weight: bold;
+}
+
+.playerSchool{
+    font-size: 12px;
 }
 
 .addPlayerButton{
     position: absolute;
-    margin-top: 105px;
-    margin-right: 100px;
+    left: 15px;
+    top: 100px;
 }
 
 .addPlayerButton:hover{
@@ -131,4 +140,10 @@ h2{
     display: flex;
     justify-content: right;
     margin-top: -60px;
+}
+
+.playerInfo{
+    display: flex;
+    font-size: 12px;
+    flex-direction: row;
 }
