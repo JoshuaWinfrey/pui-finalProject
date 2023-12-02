@@ -612,8 +612,9 @@ function selectPlayer(event) {
             playerPositionElement.appendChild(document.createTextNode(playerPosition));
             playerSchoolElement.appendChild(document.createTextNode(playerSchool));
             playerInfoElement.appendChild(playerNameElement);
-            playerInfoElement.appendChild(playerPositionElement);
             playerInfoElement.appendChild(playerSchoolElement);
+            playerInfoElement.appendChild(playerPositionElement);
+            
 
             let rosterPhotoElement = selectedPlayerElement.querySelector('.rosterPhoto');
             
@@ -656,16 +657,19 @@ function addTeam() {
     newTeam.className = 'dragThing';
     newTeam.id = teams[i].id;
 
+    let teamAndPickElement = document.createElement('div');
     let teamNameElement = document.createElement('div');
     let pickElement = document.createElement('div');
     teamNameElement.className = 'teamName';
     pickElement.className = 'pick';
+    teamAndPickElement.className = 'teamAndPick';
 
     teamNameElement.textContent = teams[i].name;
-    pickElement.textContent = teams[i].pick;
+    pickElement.textContent = teams[i].pick + ".";
 
-    newTeam.appendChild(pickElement);
-    newTeam.appendChild(teamNameElement);
+    teamAndPickElement.appendChild(pickElement);
+    teamAndPickElement.appendChild(teamNameElement);
+    newTeam.appendChild(teamAndPickElement);
     
 
     dragParent.appendChild(newTeam);
@@ -765,7 +769,7 @@ function changePickNumber() {
         let team = teams[i];
         let pickClass = team.querySelector(".pick");
         let pickNumber = i + 1;
-        pickClass.textContent = pickNumber;
+        pickClass.textContent = pickNumber + ".";
     }
 }
 

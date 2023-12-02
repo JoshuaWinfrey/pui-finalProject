@@ -31,7 +31,7 @@ h1{
     border: solid 4px white;
     font-size: 14px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .dragThing.selected{
@@ -148,4 +148,36 @@ h2{
     font-size: 12px;
     flex-direction: column;
     margin-top: 8px;
+    text-align: right;
+}
+
+.selectedPlayerName{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.selectedPlayerPosition{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.selectedPlayerSchool{
+    font-size: 12px;
+}
+
+.pick{
+    text-align: left;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.teamName{
+    text-align: left;
+    font-size: 14px;
+}
+
+.teamAndPick{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
