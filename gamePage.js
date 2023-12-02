@@ -358,6 +358,201 @@ let teams = [
 
 ];
 
+let finalPicks = [
+    {
+        name: "Tampa Bay Buccaneers",
+        pick: 1,
+        id: "buccaneers1",
+        player: "Caleb Williams"
+    },
+    {
+        name: "Arizona Cardinals",
+        pick: 2,
+        id: "cardinals1",
+        player: "Marvin Harrison Jr"
+    },
+    {
+        name: "New England Patriots",
+        pick: 3,
+        id: "patriots1",
+        player: "Drake Maye"
+    },
+    {
+        name: "Chicago Bears",
+        pick: 4,
+        id: "bears2",
+        player: "Olumuyiwa Fashanu"
+    },
+    {
+        name: "Washington Commanders",
+        pick: 5,
+        id: "commanders1",
+        player: "Joe Alt"
+    },
+    {
+        name: "New York Jets",
+        pick: 6,
+        id: "jets1",
+        player: "Brock Bowers"
+    },
+    {
+        name: "Chicago Bears",
+        pick: 7,
+        id: "bears1",
+        player: "Laiatu Latu"
+    },
+    {
+        name: "New York Giants",
+        pick: 8,
+        id: "giants1",
+        player: "Malik Nabers"
+    },
+    {
+        name: "Los Angeles Chargers",
+        pick: 9,
+        id: "chargers1",
+        player: "Jer'Zhan Newton"
+    },
+    {
+        name: "Tennessee Titans",
+        pick: 10,
+        id: "titans1",
+        player: "Chop Robinson"
+    },
+    {
+        name: "Las Vegas Raiders",
+        pick: 11,
+        id: "raiders1",
+        player: "Rome Odunze"
+    },
+    {
+        name: "New Orleans Saints",
+        pick: 12,
+        id: "saints1",
+        player: "Bo Nix"
+    },
+    {
+        name: "Green Bay Packers",
+        pick: 13,
+        id: "packers1",
+        player: "Kool-Aid McKinstry"
+    },
+    {
+        name: "Los Angeles Rams",
+        pick: 14,
+        id: "rams1",
+        player: "Jared Verse"
+    },
+    {
+        name: "Cincinnati Bengals",
+        pick: 15,
+        id: "bengals1",
+        player: "Taliese Fuaga"
+    },
+    {
+        name: "Denver Broncos",
+        pick: 16,
+        id: "broncos1",
+        player: "Nate Wiggins"
+    },
+    {
+        name: "Arizona Cardinals",
+        pick: 17,
+        id: "cardinals2",
+        player: "Dallas Turner"
+    },
+    {
+        name: "Buffalo Bills",
+        pick: 18,
+        id: "bills1",
+        player: "Bralen Trice"
+    },
+    {
+        name: "Atlanta Falcons",
+        pick: 19,
+        id: "falcons1",
+        player: "Jayden Daniels"
+    },
+    {
+        name: "Minnesota Vikings",
+        pick: 20,
+        id: "vikings1",
+        player: "JC Latham"
+    },
+    {
+        name: "Indianapolis Colts",
+        pick: 21,
+        id: "colts1",
+        player: "Cooper DeJean"
+    },
+    {
+        name: "Seattle Seahawks",
+        pick: 22,
+        id: "seahawks1",
+        player: "Kamren Kinchens"
+    },
+    {
+        name: "Pittsburgh Steelers",
+        pick: 23,
+        id: "steelers1",
+        player: "Keon Coleman"
+    },
+    {
+        name: "Houston Texans",
+        pick: 24,
+        id: "texans1",
+        player: "Emeka Egbuka"
+    },
+    {
+        name: "Miami Dolphins",
+        pick: 25,
+        id: "dolphins1",
+        player: "Tyler Nubin"
+    },
+    {
+        name: "Dallas Cowboys",
+        pick: 26,
+        id: "cowboys1",
+        player: "Amarius Mims"
+    },
+    {
+        name: "Detroit Lions",
+        pick: 27,
+        id: "lions1",
+        player: "Graham Barton"
+    },
+    {
+        name: "San Francisco 49ers",
+        pick: 28,
+        id: "49ers1",
+        player: "Michael Penix Jr"
+    },
+    {
+        name: "Kansas City Chiefs",
+        pick: 29,
+        id: "chiefs1",
+        player: "Adonai Mitchell"
+    },
+    {
+        name: "Jacksonville Jaguars",
+        pick: 30,
+        id: "jaguars1",
+        player: "Leonard Taylor III"
+    },
+    {
+        name: "Baltimore Ravens",
+        pick: 31,
+        id: "ravens1",
+        player: "Xavier Legette"
+    },
+    {
+        name: "Philadelphia Eagles",
+        pick: 32,
+        id: "eagles1",
+        player: "Kalen King"
+    },
+
+];
 
 let currentTeam = null;
 
@@ -371,6 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dragThings.forEach(function (dragThing) {
         dragThing.addEventListener('click', function () {
             switchTeam(dragThing);
+            console.log("moved");
         });
     });
 });
@@ -456,8 +652,9 @@ function addTeam() {
     teamNameElement.textContent = teams[i].name;
     pickElement.textContent = teams[i].pick;
 
-    newTeam.appendChild(teamNameElement);
     newTeam.appendChild(pickElement);
+    newTeam.appendChild(teamNameElement);
+    
 
     dragParent.appendChild(newTeam);
 }
@@ -513,6 +710,27 @@ let addPlayerButtons = document.querySelectorAll(".addPlayerButton");
 addPlayerButtons.forEach( (addPlayerButton) => {
     addPlayerButton.addEventListener("click", selectPlayer);
 })
+
+
+function scoreTeam (){
+    let score = 0;
+    for (let i=0; i<finalPicks.length; i++){
+        let teamID = document.getElementById(finalPicks[i].id);
+        let parent = teamID.parentNode;
+        let teamIndex = Array.prototype.indexOf.call(parent.children, teamID);
+        if (teamIndex + 1 === finalPicks[i].pick){
+            score = score + 1;
+            teamID.style.color = 'green';
+        }
+        else{
+            teamID.style.color = 'red';
+        }
+    }
+    console.log(score);
+    return score;
+}
+
+
 
 
 
