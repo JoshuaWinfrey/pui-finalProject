@@ -10,7 +10,189 @@ let players = [
         school: "UNC",
         position: "QB",
         id: "player2"
-    }];
+    },
+    {
+        name: "Marvin Harrison Jr",
+        school: "Ohio State",
+        position: "WR",
+        id: "player3"
+    },
+    {
+        name: "Olumuyiwa Fashanu",
+        school: "Penn State",
+        position: "OT",
+        id: "player4"
+    },
+    {
+        name: "Brock Bowers",
+        school: "Georgia",
+        position: "TE",
+        id: "player5"
+    },
+    {
+        name: "Laiatu Latu",
+        school: "UCLA",
+        position: "EDGE",
+        id: "player6"
+    },
+    {
+        name: "Joe Alt",
+        school: "Notre Dame",
+        position: "OT",
+        id: "player7"
+    },
+    {
+        name: "Malik Nabers",
+        school: "LSU",
+        position: "WR",
+        id: "player8"
+    },
+    {
+        name: "Jer'Zhan Newton",
+        school: "Illinois",
+        position: "IDL",
+        id: "player9"
+    },
+    {
+        name: "Rome Odunze",
+        school: "Washington",
+        position: "WR",
+        id: "player10"
+    },
+    {
+        name: "Chop Robinson",
+        school: "Penn State",
+        position: "EDGE",
+        id: "player11"
+    },
+    {
+        name: "Kool-Aid McKinstry",
+        school: "Alabama",
+        position: "CB",
+        id: "player12"
+    },
+    {
+        name: "Jared Verse",
+        school: "FSU",
+        position: "EDGE",
+        id: "player13"
+    },
+    {
+        name: "Nate Wiggins",
+        school: "Clemson",
+        position: "CB",
+        id: "player14"
+    },
+    {
+        name: "Dallas Turner",
+        school: "Alabama",
+        position: "EDGE",
+        id: "player15"
+    },
+    {
+        name: "Taliese Fuaga",
+        school: "Oregon State",
+        position: "OT",
+        id: "player16"
+    },
+    {
+        name: "Bo Nix",
+        school: "Oregon",
+        position: "QB",
+        id: "player17"
+    },
+    {
+        name: "Bralen Trice",
+        school: "Washington",
+        position: "EDGE",
+        id: "player18"
+    },
+    {
+        name: "JC Latham",
+        school: "Alabama",
+        position: "OT",
+        id: "player19"
+    },
+    {
+        name: "Cooper DeJean",
+        school: "Iowa",
+        position: "CB",
+        id: "player20"
+    },
+    {
+        name: "Keon Coleman",
+        school: "FSU",
+        position: "WR",
+        id: "player21"
+    },
+    {
+        name: "Jayden Daniels",
+        school: "LSU",
+        position: "QB",
+        id: "player22"
+    },
+    {
+        name: "Emeka Egbuka",
+        school: "Ohio State",
+        position: "WR",
+        id: "player23"
+    },
+    {
+        name: "Kamren Kinchens",
+        school: "Miami",
+        position: "S",
+        id: "player24"
+    },
+    {
+        name: "Michael Penix Jr",
+        school: "Washington",
+        position: "QB",
+        id: "player25"
+    },
+    {
+        name: "Amarius Mims",
+        school: "Georgia",
+        position: "OT",
+        id: "player26"
+    },
+    {
+        name: "Tyler Nubin",
+        school: "Minnesota",
+        position: "S",
+        id: "player27"
+    },
+    {
+        name: "Graham Barton",
+        school: "Duke",
+        position: "OT",
+        id: "player28"
+    },
+    {
+        name: "Adonai Mitchell",
+        school: "Texas",
+        position: "WR",
+        id: "player29"
+    },
+    {
+        name: "Leonard Taylor III",
+        school: "Miami",
+        position: "IDL",
+        id: "player30"
+    },
+    {
+        name: "Kalen King",
+        school: "Penn State",
+        position: "CB",
+        id: "player31"
+    },
+    {
+        name: "Xavier Legette",
+        school: "South Carolina",
+        position: "WR",
+        id: "player32"
+    },
+
+];
 
 let teams = [
     {
