@@ -585,37 +585,48 @@ function switchTeam(clickedTeam) {
     console.log("Current Team: " + currentTeam);
 }
 
-function selectPlayer() {
+function selectPlayer(event) {
     if (currentTeam) {
-        
-        let selectedPlayerElement = this.closest('.players');
+        let selectedPlayerElement = event.target.closest('.players');
+
         if (selectedPlayerElement) {
             let playerName = selectedPlayerElement.querySelector('.playerName').textContent;
             let playerPosition = selectedPlayerElement.querySelector('.playerPosition').textContent;
-            console.log(playerName);
+            let playerSchool = selectedPlayerElement.querySelector('.playerSchool').textContent;
 
             // Create a new player element
             let newPlayerElement = document.createElement('div');
             newPlayerElement.className = 'selectedPlayer';
 
-            // Copy player information to the new player element
-            let playerInfo = document.createElement('div');
-            let playerImage = document.createElement('div');
-            //let playerPosition = document.createElement('div');
-            let playerSchool = document.createElement('div');
-            playerInfo.className = 'playerInfo';
-            playerImage.className = 'playerImage';
-            playerName.className = 'selectedPlayerName';
-            playerPosition.className = 'selectedPlayerPosition';
-            playerSchool.className = 'selectedPlayerSchool';
-            playerInfo.appendChild(document.createTextNode(playerName)); // Set player name
-            playerInfo.appendChild(document.createTextNode(playerPosition));
-            playerInfo.appendChild(playerSchool);
-            playerImage.appendChild(selectedPlayerElement.querySelector('.rosterPhoto').cloneNode(true));
+            let playerInfoElement = document.createElement('div');
+            let playerImageElement = document.createElement('div');
+            let playerNameElement = document.createElement('div');
+            let playerSchoolElement = document.createElement('div');
+            let playerPositionElement = document.createElement('div');
+            playerInfoElement.className = 'playerInfo';
+            playerImageElement.className = 'playerImage';
+            playerNameElement.className = 'selectedPlayerName';
+            playerPositionElement.className = 'selectedPlayerPosition';
+            playerSchoolElement.className = 'selectedPlayerSchool';
+            playerNameElement.appendChild(document.createTextNode(playerName));
+            playerPositionElement.appendChild(document.createTextNode(playerPosition));
+            playerSchoolElement.appendChild(document.createTextNode(playerSchool));
+            playerInfoElement.appendChild(playerNameElement);
+            playerInfoElement.appendChild(playerPositionElement);
+            playerInfoElement.appendChild(playerSchoolElement);
+
+            let rosterPhotoElement = selectedPlayerElement.querySelector('.rosterPhoto');
+            
+            if (rosterPhotoElement) {
+                playerImageElement.appendChild(rosterPhotoElement.cloneNode(true));
+            } else {
+                console.error("Error: Unable to find '.rosterPhoto' element.");
+            }
+
             selectedPlayerElement.remove();
 
-            newPlayerElement.appendChild(playerInfo);
-            newPlayerElement.appendChild(playerImage);
+            newPlayerElement.appendChild(playerInfoElement);
+            newPlayerElement.appendChild(playerImageElement);
 
             // Append the new player element to the selected team
             let selectedTeam = document.querySelector('.selected');
@@ -633,6 +644,7 @@ function selectPlayer() {
         console.log("Please select a team first.");
     }
 }
+
 
 
 

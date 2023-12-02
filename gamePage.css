@@ -31,6 +31,7 @@ h1{
     border: solid 4px white;
     font-size: 14px;
     display: flex;
+    justify-content: space-evenly;
 }
 
 .dragThing.selected{
@@ -98,6 +99,7 @@ h2{
     border-radius: 5px;
     width: 86px;
     height: 98px;
+    margin-top: 8px;
 }
 
 .playerPhoto{
@@ -139,12 +141,11 @@ h2{
 
 .selectedPlayer{
     display: flex;
-    justify-content: right;
-    margin-top: -60px;
 }
 
 .playerInfo{
     display: flex;
     font-size: 12px;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 8px;
 }
