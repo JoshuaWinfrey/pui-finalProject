@@ -566,8 +566,8 @@ document.addEventListener("DOMContentLoaded", function () {
     dragThings.forEach(function (dragThing) {
         dragThing.addEventListener('click', function () {
             switchTeam(dragThing);
-            console.log("moved");
         });
+        dragThing.addEventListener('mousemove', changePickNumber);
     });
 });
 
@@ -730,7 +730,32 @@ function scoreTeam (){
     return score;
 }
 
+/*
+function changePickNumber(){
+    for (let i=0; i<teams.length; i++){
+        let pickClass = document.querySelector(".pick");
+        let pickNumber = teams[i].pick;
+        let teamID = document.getElementById(finalPicks[i].id);
+        let parent = teamID.parentNode;
+        let teamIndex = Array.prototype.indexOf.call(parent.children, teamID);
+        pickNumber = teamIndex + 1;
+        //console.log(pickNumber);
+        console.log(pickClass.innerHTML);
+        //pickClass.textContent = pickNumber;
+    }
+}
+*/
 
+function changePickNumber() {
+    let teams = document.querySelectorAll('.dragThing');
+
+    for (let i = 0; i < teams.length; i++) {
+        let team = teams[i];
+        let pickClass = team.querySelector(".pick");
+        let pickNumber = i + 1;
+        pickClass.textContent = pickNumber;
+    }
+}
 
 
 
