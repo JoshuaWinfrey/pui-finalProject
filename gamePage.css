@@ -51,7 +51,6 @@ h1{
 
 #howToPlay{
     flex-basis: 100%;
-    margin-left: 30px;
 }
 
 h2{
@@ -180,4 +179,10 @@ h2{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+#submissionBox{
+    flex-basis: 100%;
+    text-align: right;
+    margin-top: 10px;
 }

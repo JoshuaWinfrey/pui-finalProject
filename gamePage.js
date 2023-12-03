@@ -746,21 +746,8 @@ function scoreTeam (){
     return score;
 }
 
-/*
-function changePickNumber(){
-    for (let i=0; i<teams.length; i++){
-        let pickClass = document.querySelector(".pick");
-        let pickNumber = teams[i].pick;
-        let teamID = document.getElementById(finalPicks[i].id);
-        let parent = teamID.parentNode;
-        let teamIndex = Array.prototype.indexOf.call(parent.children, teamID);
-        pickNumber = teamIndex + 1;
-        //console.log(pickNumber);
-        console.log(pickClass.innerHTML);
-        //pickClass.textContent = pickNumber;
-    }
-}
-*/
+let submitButton = document.querySelector('.submitButton');
+submitButton.addEventListener('click',scoreTeam);
 
 function changePickNumber() {
     let teams = document.querySelectorAll('.dragThing');
