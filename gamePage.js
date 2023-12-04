@@ -729,25 +729,86 @@ addPlayerButtons.forEach( (addPlayerButton) => {
 
 
 function scoreTeam (){
-    let score = 0;
+    let teamScore = 0;
     for (let i=0; i<finalPicks.length; i++){
         let teamID = document.getElementById(finalPicks[i].id);
         let parent = teamID.parentNode;
         let teamIndex = Array.prototype.indexOf.call(parent.children, teamID);
-        if (teamIndex + 1 === finalPicks[i].pick){
-            score = score + 1;
+        if ((teamIndex + 1 === finalPicks[i].pick)){
+            teamScore = teamScore + 1;
             teamID.style.color = 'green';
         }
         else{
             teamID.style.color = 'red';
         }
     }
-    console.log(score);
+    console.log("Team Score: " + teamScore);
+    return teamScore;
+}
+
+function scorePlayers() {
+    let playerScore = 0;
+
+    let dragThings = document.querySelectorAll('.dragThing');
+
+    dragThings.forEach(function (dragThing) {
+        let teamName = dragThing.querySelector('.teamName').textContent.trim();
+
+        // Access player information within the dragThing
+        let selectedPlayer = dragThing.querySelector('.selectedPlayer');
+        if (selectedPlayer) {
+            let playerName = selectedPlayer.querySelector('.selectedPlayerName').textContent.trim();
+
+            // Check if the playerName matches with the same team in finalPicks
+            let matchingPick = finalPicks.find(pick => pick.name === teamName && pick.player === playerName);
+
+            if (matchingPick) {
+                playerScore += 1;
+                console.log("Match found for Team: " + teamName + ", Player: " + playerName);
+                selectedPlayer.style.color = 'green';
+            } else {
+                console.log("No match found for Team: " + teamName + ", Player: " + playerName);
+                selectedPlayer.style.color = 'red';
+            }
+        } else {
+            console.log("No selected player for Team: " + teamName);
+        }
+    });
+
+    console.log("Player Score: " + playerScore);
+    return playerScore;
+}
+
+//let totalScore = 0;
+
+function calculateTotalScore() {
+    let score = 0;
+    score = scoreTeam() + scorePlayers();
+    console.log("Total Score: " + score);
     return score;
 }
 
+function updateScoreboard(){
+    calculateTotalScore();
+    
+    let submissionBox = document.getElementById('submissionBox');
+    let totalScoreElement = document.createElement('div');
+    totalScoreElement.textContent = "Total Score: " + calculateTotalScore();
+    console.log(calculateTotalScore());
+
+    totalScoreElement.className = 'totalScore';
+    submissionBox.appendChild(totalScoreElement);
+
+}
+
+
+
+
+
+
+
 let submitButton = document.querySelector('.submitButton');
-submitButton.addEventListener('click',scoreTeam);
+submitButton.addEventListener('click',updateScoreboard);
 
 function changePickNumber() {
     let teams = document.querySelectorAll('.dragThing');
@@ -759,6 +820,9 @@ function changePickNumber() {
         pickClass.textContent = pickNumber + ".";
     }
 }
+
+
+
 
 
 
