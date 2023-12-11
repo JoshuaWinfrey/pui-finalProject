@@ -642,7 +642,7 @@ function selectPlayer(event) {
             console.error("Error: Unable to find selected player element.");
         }
     } else {
-        console.log("Please select a team first.");
+        alert("Please select a team first.");
     }
 }
 
@@ -795,6 +795,7 @@ function updateScoreboard(){
     let totalScoreElement = document.createElement('div');
     totalScoreElement.textContent = "Total Score: " + calculateTotalScore();
     console.log(calculateTotalScore());
+    alert(totalScoreElement.textContent);
 
     totalScoreElement.className = 'totalScore';
     submissionBox.appendChild(totalScoreElement);
@@ -821,12 +822,13 @@ function changePickNumber() {
     }
 }
 
+let informationIcon = document.querySelector('#informationIcon');
+let howToPlay = document.querySelector('#howToPlayText');
+
+informationIcon.addEventListener('click',instructionPage);
+howToPlay.addEventListener('click',instructionPage);
 
 
-
-
-
-
-
-
-
+function instructionPage (){
+    location.href = './instructions.html';
+}
