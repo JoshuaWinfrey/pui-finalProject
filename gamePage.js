@@ -568,6 +568,7 @@ document.addEventListener("DOMContentLoaded", function () {
             switchTeam(dragThing);
         });
         dragThing.addEventListener('mousemove', changePickNumber);
+        dragThing.addEventListener('touchend',changePickNumber);
     });
 });
 
