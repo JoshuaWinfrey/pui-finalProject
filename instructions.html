@@ -2,7 +2,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="gamePage.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -21,11 +20,35 @@
 
     </header>
 
-    <section id="draftGame">
-        
+    <div class="returnToGame">
+        <img id="returnIcon" src="Assets/Icon Return.png"/>
+        <p class="returnToGameText">
+            Return to Game
+        </p>
+    </div>
+
+    <section id="instructionsContent">
+        <div class="instructionsText">
+            <p class="instructionsParagraph">
+                In the first round of the NFL Draft, there are 32 selections. The objective of the game is to accurately assign the team and player for each of the 32 selections.
+                <br>
+                Each time you assign a team to the correct draft position, you will earn 1 point. If you  assign a player to the correct team, you will earn 1 additional point. Thus, you can earn a maximum of 2 points per selection by correctly assigning the team and player.
+            </p>
+
+            <img class="scoringExample" src="Assets/Scoring Example.png"/>
+
+            <p class="scoringParagraph">
+                If the correct team is selected, the team name and number will be highlighted in green. If the correct player is selected, the selection will be highlighted in green. 
+                <br>
+                Contrarily, if selections are incorrect, the respective elements will be highlighted in red.
+            </p>
+
+            <img class="scoringExample" src="Assets/Scoring Highlight Example.png"/>
+        </div>
+    
     </section>
 
-<script src="gamePage.js"></script>
+<script src="instructions.js"></script>
 
 </body>
 

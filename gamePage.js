@@ -832,3 +832,5 @@ howToPlay.addEventListener('click',instructionPage);
 function instructionPage (){
     location.href = './instructions.html';
 }
+
+

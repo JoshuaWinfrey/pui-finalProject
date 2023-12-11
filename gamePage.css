@@ -240,3 +240,38 @@ h2{
 .totalScore{
     font-size: 30px;
 }
+
+.returnToGame{
+    display: flex;
+    align-items: center;
+}
+
+.returnToGameText{
+    font-size: 14px;
+}
+
+#returnIcon{
+    width: 40px;
+    height: 40px;
+}
+
+#returnIcon:hover{
+    cursor: pointer;
+}
+
+.returnToGameText:hover{
+    cursor: pointer;
+}
+
+#instructionsContent{
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.instructionsParagraph{
+    width: 735px;
+}
+
+.scoringExample{
+    width: 735px;
+}
