@@ -573,15 +573,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function switchTeam(clickedTeam) {
-    // Remove the 'selected' class from all elements
     document.querySelectorAll('.dragThing').forEach(function (element) {
         element.classList.remove('selected');
     });
 
-    // Add the 'selected' class to the clicked element
     clickedTeam.classList.add('selected');
 
-    // Set the currentTeam to the clicked team
     currentTeam = clickedTeam.querySelector('.teamName').textContent.trim(); // The team name is the text content
     console.log("Current Team: " + currentTeam);
 }
@@ -595,7 +592,6 @@ function selectPlayer(event) {
             let playerPosition = selectedPlayerElement.querySelector('.playerPosition').textContent;
             let playerSchool = selectedPlayerElement.querySelector('.playerSchool').textContent;
 
-            // Create a new player element
             let newPlayerElement = document.createElement('div');
             newPlayerElement.className = 'selectedPlayer';
 
@@ -630,11 +626,9 @@ function selectPlayer(event) {
             newPlayerElement.appendChild(playerInfoElement);
             newPlayerElement.appendChild(playerImageElement);
 
-            // Append the new player element to the selected team
             let selectedTeam = document.querySelector('.selected');
             selectedTeam.appendChild(newPlayerElement);
 
-            // Remove the selected player from the availablePlayers div
             let availablePlayers = document.querySelector('.availablePlayers');
             let selectedPlayer = document.querySelector('.selected');
 
@@ -757,12 +751,10 @@ function scorePlayers() {
     dragThings.forEach(function (dragThing) {
         let teamName = dragThing.querySelector('.teamName').textContent.trim();
 
-        // Access player information within the dragThing
         let selectedPlayer = dragThing.querySelector('.selectedPlayer');
         if (selectedPlayer) {
             let playerName = selectedPlayer.querySelector('.selectedPlayerName').textContent.trim();
 
-            // Check if the playerName matches with the same team in finalPicks
             let matchingPick = finalPicks.find(pick => pick.name === teamName && pick.player === playerName);
 
             if (matchingPick) {
@@ -782,7 +774,6 @@ function scorePlayers() {
     return playerScore;
 }
 
-//let totalScore = 0;
 
 function calculateTotalScore() {
     let score = 0;
