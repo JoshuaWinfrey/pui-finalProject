@@ -692,8 +692,10 @@ function addPlayer(){
     let playerPhotoElement = document.createElement('div'); 
     let rosterPhotoElement = document.createElement('img');
     rosterPhotoElement.src = "Assets/" + players[i].name + ".png";
+    rosterPhotoElement.alt = players[i].name + " Roster Photo";
     let addButton = document.createElement('img');
     addButton.src = "Assets/Icon Plus.png";
+    addButton.alt = "Add Player Button";
     
 
     playerNameElement.className = 'playerName';
